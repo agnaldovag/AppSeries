@@ -1,0 +1,38 @@
+﻿@model CadSeries.Models.TV
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Cadastro de TVs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeTv" class="control-label">Nome da Emissora</label>
+                <input asp-for="NomeTv" class="form-control" />
+                <span asp-validation-for="NomeTv" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+   <i class="fas fa-backward"></i> <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,34 @@
+﻿@model CadSeries.Models.TV
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3 class="alert-danger">Esta ação não tem volta! :(</h3>
+<div>
+    <h4>TV</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <label>Nome da Emissora</label>
+            @Html.DisplayNameFor(model => model.NomeTv)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NomeTv)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+       <i class="fas fa-backward"></i> <a asp-action="Index">Voltar</a>
+    </form>
+</div>

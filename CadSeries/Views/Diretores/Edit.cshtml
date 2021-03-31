@@ -1,0 +1,49 @@
+﻿@model CadSeries.Models.Diretor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Editar</h4>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TVId" class="control-label">TV</label>
+                <select asp-for="TVId" class="form-control" asp-items="ViewBag.TVId"></select>
+                <span asp-validation-for="TVId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeDiretor" class="control-label">Diretor</label>
+                <input asp-for="NomeDiretor" class="form-control" />
+                <span asp-validation-for="NomeDiretor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Biografia" class="control-label"></label>
+                <input asp-for="Biografia" class="form-control" />
+                <span asp-validation-for="Biografia" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Savar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+   <i class="fas fa-backward"></i> <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

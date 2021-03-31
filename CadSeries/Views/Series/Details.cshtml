@@ -1,0 +1,56 @@
+﻿@model CadSeries.Models.Series
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h4>Cadastro de Séries</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            <label>Genero</label>
+            
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genero.NomeGenero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cartaz)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cartaz)
+        </dd>
+        <dt class = "col-sm-2">
+            <label>Descrição</label>
+            
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Diretor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diretor.Biografia)
+        </dd>
+    </dl>
+</div>
+<div>
+   <i class="fas fa-edit"></i> <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+   <i class="fas fa-backward"></i> <a asp-action="Index">Voltar</a>
+</div>

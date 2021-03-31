@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CadSeries.Models.Genero>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+   <h6>Preencha o formulário abaixo para cadastar um novo Genero musical.</h6>
+    <a class="btn btn-primary" asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Genero</label>
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+              
+                @Html.DisplayFor(modelItem => item.NomeGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i> Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"> <i class="fas fa-list"></i> Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"> <i class="fas fa-trash"></i> Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

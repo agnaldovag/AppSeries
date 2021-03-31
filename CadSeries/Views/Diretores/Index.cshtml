@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CadSeries.Models.Diretor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Lista de Diretores Cadastrados</h3>
+
+<p>
+    <h6>Clique no botão "Novo" para cadastrar novo Diretor</h6><br />
+   <a class="btn btn-primary" asp-action="Create">Novo </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Diretor</label>
+               
+            </th>
+            <th>
+                <label>Biografia</label>
+                
+            </th>
+            <th>
+                <label> Ativo</label>
+                
+            </th>
+            <th>
+                <label>TV</label>
+                
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeDiretor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Biografia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tv.NomeTv)
+            </td>
+            <td>
+                <a class="alert-primary" asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i> Editar</a> |
+                <a class="alert-info" asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-list"></i> Detalhes</a> |
+                <a class="alert-danger" asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i> Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
